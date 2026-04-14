@@ -26,6 +26,7 @@ rm -rf "$FILE_PATH"
 mkdir -p "$FILE_PATH"
 
 # ================== 获取公网 IP ==================
+yum install curl -y
 echo "[网络] 获取公网 IP..."
 PUBLIC_IP=$(curl -s --max-time 5 ipv4.ip.sb || curl -s --max-time 5 api.ipify.org || echo "")
 [ -z "$PUBLIC_IP" ] && echo "[错误] 无法获取公网 IP" && exit 1
